@@ -4,33 +4,45 @@ body {
     margin: 0;
     padding: 0;
 }
+
+/* Container */
 .container {
-    max-width: 480px;
+    max-width: 90%; /* Changed from fixed 480px to percentage */
+    min-width: 320px; /* Ensures adaptability */
     margin: 2rem auto;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+    border-radius: 16px; /* Increased for a softer design */
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1); /* Enhanced shadow for modern look */
     padding: 2rem 1.5rem 1.5rem 1.5rem;
+    transition: all 0.3s ease; /* Added smooth transitions */
 }
+
+/* Heading */
 h1 {
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1.8rem; /* Increased font size for better hierarchy */
     margin-bottom: 1.5rem;
     color: #2a4d69;
 }
+
+/* Input and Output Groups */
 .input-group, .output-group {
     margin-bottom: 1.1rem;
 }
+
 .input-group label, .output-group label {
     font-weight: 500;
     display: block;
     margin-bottom: 0.3rem;
     color: #24496e;
 }
+
+/* Plot Inputs */
 .plot-inputs {
     display: flex;
     gap: 0.7rem;
 }
+
 .plot-inputs div {
     flex: 1;
     display: flex;
@@ -39,8 +51,10 @@ h1 {
     border-radius: 5px;
     padding: 0.2rem 0.5rem;
 }
+
 input[type="number"] {
-    width: 80px;
+    width: auto; /* Replaced fixed width for flexibility */
+    flex: 1; /* Scales dynamically within the container */
     border: 1px solid #c2d6e3;
     border-radius: 4px;
     padding: 0.35rem 0.5rem;
@@ -48,14 +62,31 @@ input[type="number"] {
     margin-right: 0.3rem;
     background: #fff;
     color: #2a4d69;
+    transition: all 0.3s ease; /* Added smooth transitions */
 }
+
+input[type="number"]:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Interactive feedback */
+}
+
+input[type="number"]:focus {
+    border-color: #1565c0;
+    background: #f0f7ff; /* Highlight input on focus */
+    outline: 2px solid #1565c0;
+    outline-offset: 2px;
+}
+
 input[type="number"]:invalid {
     border-color: #e57373;
+    background: #fdecea; /* Highlight invalid input */
 }
+
 span.unit, .plot-inputs span {
     font-size: 0.97em;
     color: #607d8b;
 }
+
+/* Output Groups */
 .output-group {
     display: flex;
     justify-content: space-between;
@@ -64,36 +95,70 @@ span.unit, .plot-inputs span {
     border-radius: 5px;
     padding: 0.5rem 0.7rem;
     font-size: 1.04rem;
+    transition: all 0.3s ease; /* Added smooth transitions */
 }
+
+.output-group:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Interactive feedback */
+}
+
 .output-group.total {
     background: #e3f2fd;
     font-weight: 600;
     font-size: 1.13rem;
     color: #1565c0;
 }
+
+/* Error Handling */
+.input-error {
+    margin-left: 8px;
+    color: #e57373;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Example for adding an error icon */
+.input-error::before {
+    content: "⚠️"; /* Adds a warning icon */
+    margin-right: 4px;
+}
+
+/* Media Queries for Responsiveness */
 @media (max-width: 600px) {
     .container {
         padding: 1rem 0.4rem 1rem 0.4rem;
     }
+
     .plot-inputs {
         flex-direction: column;
         gap: 0.3rem;
     }
+
     input[type="number"] {
         width: 100%;
         min-width: 0;
     }
+
     .output-group {
         font-size: 0.99rem;
         padding: 0.45rem 0.4rem;
     }
 }
-/* Add to your CSS */
-.output-field {
-    background: #f6f8fa;
-    padding: 0.2em 0.5em;
-    border-radius: 4px;
+
+/* Dark Mode */
+body.dark {
+    background: #121212;
+    color: #e0e0e0;
 }
-.input-error {
-    margin-left: 8px;
+
+.container.dark {
+    background: #1e1e1e;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+input.dark {
+    background: #2e2e2e;
+    color: #e0e0e0;
+    border-color: #444;
 }
