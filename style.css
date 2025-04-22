@@ -1,0 +1,99 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f8fb;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 480px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.07);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    color: #2a4d69;
+}
+.input-group, .output-group {
+    margin-bottom: 1.1rem;
+}
+.input-group label, .output-group label {
+    font-weight: 500;
+    display: block;
+    margin-bottom: 0.3rem;
+    color: #24496e;
+}
+.plot-inputs {
+    display: flex;
+    gap: 0.7rem;
+}
+.plot-inputs div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #f1f5fa;
+    border-radius: 5px;
+    padding: 0.2rem 0.5rem;
+}
+input[type="number"] {
+    width: 80px;
+    border: 1px solid #c2d6e3;
+    border-radius: 4px;
+    padding: 0.35rem 0.5rem;
+    font-size: 1rem;
+    margin-right: 0.3rem;
+    background: #fff;
+    color: #2a4d69;
+}
+input[type="number"]:invalid {
+    border-color: #e57373;
+}
+span.unit, .plot-inputs span {
+    font-size: 0.97em;
+    color: #607d8b;
+}
+.output-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f7fafc;
+    border-radius: 5px;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.04rem;
+}
+.output-group.total {
+    background: #e3f2fd;
+    font-weight: 600;
+    font-size: 1.13rem;
+    color: #1565c0;
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 1rem 0.4rem 1rem 0.4rem;
+    }
+    .plot-inputs {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+    input[type="number"] {
+        width: 100%;
+        min-width: 0;
+    }
+    .output-group {
+        font-size: 0.99rem;
+        padding: 0.45rem 0.4rem;
+    }
+}
+/* Add to your CSS */
+.output-field {
+    background: #f6f8fa;
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+}
+.input-error {
+    margin-left: 8px;
+}
