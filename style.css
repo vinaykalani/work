@@ -128,6 +128,20 @@ span.unit, .plot-inputs span {
     color: #1565c0;
 }
 
+/* Styled Card for Output Groups */
+.output-group-wrapper {
+    border: 1px solid #e0e0e0; /* Add a border to the card */
+    border-radius: 8px; /* Rounded corners */
+    padding: 1rem; /* Add padding for spacing */
+    margin-bottom: 1rem; /* Add spacing between cards */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+.output-group-wrapper:hover {
+    background-color: #f9f9f9; /* Change background on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add a subtle shadow on hover */
+}
+
 /* Error Handling */
 .input-error {
     margin-left: 8px;
