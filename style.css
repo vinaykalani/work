@@ -3,6 +3,12 @@ body {
     background: #f4f8fb;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* General Box Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
 /* Container */
@@ -16,6 +22,19 @@ body {
     padding: 2rem 1.5rem 1.5rem 1.5rem;
     transition: all 0.3s ease; /* Added smooth transitions */
 }
+
+.container:hover {
+    transform: translateY(-5px); /* Subtle lift effect */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Glass Effect */
+.glass-container {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /* Button Styling */
 button {
     display: inline-block;
@@ -39,10 +58,23 @@ button:active {
     transform: scale(0.98); /* Slightly shrink on click */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
 }
+
+button:disabled {
+    background: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+button.icon-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 /* Heading */
 h1 {
     text-align: center;
-    font-size: 1.8rem; /* Increased font size for better hierarchy */
+    font-size: calc(1.5rem + 1vw); /* Responsive typography */
     margin-bottom: 1.5rem;
     color: #2a4d69;
 }
@@ -57,6 +89,32 @@ h1 {
     display: block;
     margin-bottom: 0.3rem;
     color: #24496e;
+}
+
+/* Floating Labels */
+.floating-label {
+    position: relative;
+}
+
+.floating-label input {
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+}
+
+.floating-label label {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 0.9rem;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+    top: -0.5rem;
+    font-size: 0.75rem;
+    color: #1565c0;
 }
 
 /* Plot Inputs */
@@ -101,6 +159,19 @@ input[type="number"]:focus {
 input[type="number"]:invalid {
     border-color: #e57373;
     background: #fdecea; /* Highlight invalid input */
+    animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25%, 75% {
+        transform: translateX(4px);
+    }
+    50% {
+        transform: translateX(-4px);
+    }
 }
 
 span.unit, .plot-inputs span {
@@ -151,7 +222,6 @@ span.unit, .plot-inputs span {
     align-items: center;
 }
 
-/* Example for adding an error icon */
 .input-error::before {
     content: "⚠️"; /* Adds a warning icon */
     margin-right: 4px;
@@ -181,12 +251,12 @@ span.unit, .plot-inputs span {
 
 /* Dark Mode */
 body.dark {
-    background: #121212;
-    color: #e0e0e0;
+    background: #0d0d0d;
+    color: #cfcfcf;
 }
 
 .container.dark {
-    background: #1e1e1e;
+    background: #1a1a1a;
     box-shadow: 0 4px 16px rgba(0,0,0,0.5);
 }
 
