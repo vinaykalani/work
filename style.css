@@ -108,20 +108,17 @@ span.unit, .plot-inputs span {
     color: #607d8b;
 }
 
-/* Output Groups */
+/* Output Groups - Updated to Grid Layout */
 .output-group {
-    display: flex;
-    justify-content: space-between;
+    display: grid; /* Switch to grid layout */
+    grid-template-columns: repeat(3, 1fr); /* Create 3 equally-sized columns */
+    gap: 0.5rem; /* Add spacing between grid items */
     align-items: center;
     background: #f7fafc;
     border-radius: 5px;
     padding: 0.5rem 0.7rem;
     font-size: 1.04rem;
-    transition: all 0.3s ease; /* Added smooth transitions */
-}
-
-.output-group:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Interactive feedback */
+    transition: all 0.3s ease; /* Smooth transitions */
 }
 
 .output-group.total {
